@@ -22,15 +22,24 @@ public class Main {
                     String[]marca=new String[num];
                     String[]modello=new String[num];
                     double[]prezzo=new double[num];
+                    aggiungi(marca,modello,prezzo,num);
                     for (int i = 0; i < num; i++) {
                         System.out.println("Inserisci la marca dell'auto ");
                         marca[i] = input.nextLine();
+                        String marcaIns=marca[i];
                         System.out.println("Inserisci il modello dell'auto ");
                         modello[i] = input.nextLine();
+                        String modelloIns=modello[i];
                         System.out.println("Inserisci il prezzo dell'auto ");
                         prezzo[i] = input.nextDouble();
+                        double prezzoIns=prezzo[i];
                 }
             }
         }while(scelta!=0);
+    }
+    private static void aggiungi (String[]marca, String[]modello, double[]prezzo,int num){
+        for(int i=0;i<num;i++){
+
+        }
     }
 }
