@@ -4,9 +4,6 @@ public class Main {
         Scanner input=new Scanner (System.in);
         int num=0;
         int scelta;
-        String[]marca=new String[num];
-        String[]modello=new String[num];
-        double[]prezzo=new double[num];
         do {
             System.out.println("Inserisci 0 per uscire");
             System.out.println("Inserisci 1 per aggiungere una nuova auto");
@@ -18,13 +15,21 @@ public class Main {
             System.out.println("Inserisci 7 per visualizzare tutti i modelli diesel");
             System.out.print("Inserisci la tua scelta ");
             scelta=input.nextInt();
-            for (int i = 0; i < num; i++) {
-                System.out.println("Inserisci la marca dell'auto ");
-                marca[i] = input.nextLine();
-                System.out.println("Inserisci il modello dell'auto ");
-                modello[i] = input.nextLine();
-                System.out.println("Inserisci il prezzo dell'auto ");
-                prezzo[i] = input.nextDouble();
+            switch(scelta){
+                case 1:
+                    System.out.print("Inserisci il numero delle auto che vuoi aggiungere ");
+                    num=input.nextInt();
+                    String[]marca=new String[num];
+                    String[]modello=new String[num];
+                    double[]prezzo=new double[num];
+                    for (int i = 0; i < num; i++) {
+                        System.out.println("Inserisci la marca dell'auto ");
+                        marca[i] = input.nextLine();
+                        System.out.println("Inserisci il modello dell'auto ");
+                        modello[i] = input.nextLine();
+                        System.out.println("Inserisci il prezzo dell'auto ");
+                        prezzo[i] = input.nextDouble();
+                }
             }
         }while(scelta!=0);
     }
