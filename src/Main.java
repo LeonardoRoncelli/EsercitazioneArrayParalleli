@@ -33,11 +33,7 @@ public class Main {
                     }
                 }
                 case 2:{
-                    for (int i=0;i<conta;i++){
-                        System.out.println(marca[i]);
-                        System.out.print(modello[i]);
-                        System.out.print(prezzo[i]);
-                    }
+                        visualizza(marca,modello,prezzo,conta);
                 }
                 case 3:{
                     String marca3;
@@ -53,7 +49,6 @@ public class Main {
                             break;
                         }
                     }
-
                 }
                 case 4: {
                     String cancMarca;
@@ -109,5 +104,12 @@ public class Main {
         marca[conta]=marcaIns;
         modello[conta]=modelloIns;
         prezzo[conta]=prezzoIns;
+    }
+    private static void visualizza (String[]marca,String[]modello,double[]prezzo,int conta){
+        for (int i=0;i<conta;i++) {
+            System.out.println(marca[i]);
+            System.out.print(modello[i]);
+            System.out.print(prezzo[i]);
+        }
     }
 }
