@@ -106,6 +106,7 @@ public class Main {
             System.out.print(prezzo[i]);
         }
     }
+
     private static void ricerca (String marca3, String modello3, String[]marca,String[]modello,int conta){
         for(int i=0;i<conta;i++){
             if(marca[i].equalsIgnoreCase(marca3)&&modello[i].equalsIgnoreCase(modello3)){
