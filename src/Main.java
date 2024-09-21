@@ -47,20 +47,12 @@ public class Main {
                 case 4: {
                     String cancMarca;
                     String cancModello;
-                    String temp;
+                    String temp=null;
                     System.out.print("Inserisci la marca da cancellare: ");
                     cancMarca = input.next();
                     System.out.print("Inserisci il modello da cancellare: ");
                     cancModello = input.next();
-                    for (int i = 0; i < conta; i++) {
-                        if (marca[i].equalsIgnoreCase(cancMarca) && modello[i].equalsIgnoreCase(cancModello)) {
-                            temp = marca[i];
-                            marca[i] = marca[conta];
-                            marca[conta] = temp;
-                            conta--;
-                            break;
-                        }
-                    }
+                    cancella(cancMarca,cancModello,temp,conta,marca,modello);
                 }
                 case 5:{
                     String ricercaMarca;
@@ -106,12 +98,22 @@ public class Main {
             System.out.print(prezzo[i]);
         }
     }
-
     private static void ricerca (String marca3, String modello3, String[]marca,String[]modello,int conta){
         for(int i=0;i<conta;i++){
             if(marca[i].equalsIgnoreCase(marca3)&&modello[i].equalsIgnoreCase(modello3)){
                 System.out.println(marca[i]);
                 System.out.println(modello[i]);
+                break;
+            }
+        }
+    }
+    private static void cancella (String cancMarca,String cancModello,String temp,int conta,String[]marca,String[]modello){
+        for (int i = 0; i < conta; i++) {
+            if (marca[i].equalsIgnoreCase(cancMarca) && modello[i].equalsIgnoreCase(cancModello)) {
+                temp = marca[i];
+                marca[i] = marca[conta];
+                marca[conta] = temp;
+                conta--;
                 break;
             }
         }
