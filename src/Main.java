@@ -2,8 +2,11 @@ import java.util.Scanner;
 public class Main {
     public static void main(String[] args) {
         Scanner input=new Scanner (System.in);
-        int num=0;
+        int conta=0;
         int scelta;
+        String[]marca=new String[100];
+        String[]modello=new String[100];
+        double[]prezzo=new double[100];
         do {
             System.out.println("Inserisci 0 per uscire");
             System.out.println("Inserisci 1 per aggiungere una nuova auto");
@@ -15,31 +18,101 @@ public class Main {
             System.out.println("Inserisci 7 per visualizzare tutti i modelli diesel");
             System.out.print("Inserisci la tua scelta ");
             scelta=input.nextInt();
-            switch(scelta){
-                case 1:
-                    System.out.print("Inserisci il numero delle auto che vuoi aggiungere ");
-                    num=input.nextInt();
-                    String[]marca=new String[num];
-                    String[]modello=new String[num];
-                    double[]prezzo=new double[num];
-                    aggiungi(marca,modello,prezzo,num);
-                    for (int i = 0; i < num; i++) {
-                        System.out.println("Inserisci la marca dell'auto ");
-                        marca[i] = input.nextLine();
-                        String marcaIns=marca[i];
-                        System.out.println("Inserisci il modello dell'auto ");
-                        modello[i] = input.nextLine();
-                        String modelloIns=modello[i];
-                        System.out.println("Inserisci il prezzo dell'auto ");
-                        prezzo[i] = input.nextDouble();
-                        double prezzoIns=prezzo[i];
+            switch(scelta) {
+                case 1: {
+                    if (conta < 100) {
+                        System.out.print("Inserisci la marca dell'auto: ");
+                        String marcaIns= input.next();
+                        System.out.print("Inserisci il modello dell'auto: ");
+                        String modelloIns = input.next();
+                        System.out.print("Inserisci il prezzo dell'auto: ");
+                        double prezzoIns = input.nextDouble();
+                        aggiunta(conta,marca,modello,prezzo, marcaIns,modelloIns,prezzoIns);
+                    } else {
+                        System.out.println("Lunghezza massima array raggiunta");
+                    }
+                }
+                case 2:{
+                    visualizza(marca,modello,prezzo,conta);
+                }
+                case 3:{
+                    String marca3;
+                    String modello3;
+                    System.out.print("Inserisci la marca da ricercare: ");
+                    marca3=input.next();
+                    System.out.print("Inserisci il modello da ricercare: ");
+                    modello3=input.next();
+                    ricerca(marca3,modello3,marca,modello,conta);
+                }
+                case 4: {
+                    String cancMarca;
+                    String cancModello;
+                    String temp;
+                    System.out.print("Inserisci la marca da cancellare: ");
+                    cancMarca = input.next();
+                    System.out.print("Inserisci il modello da cancellare: ");
+                    cancModello = input.next();
+                    for (int i = 0; i < conta; i++) {
+                        if (marca[i].equalsIgnoreCase(cancMarca) && modello[i].equalsIgnoreCase(cancModello)) {
+                            temp = marca[i];
+                            marca[i] = marca[conta];
+                            marca[conta] = temp;
+                            conta--;
+                            break;
+                        }
+                    }
+                }
+                case 5:{
+                    String ricercaMarca;
+                    String ricercaModello;
+                    double ricercaPrezzo;
+                    System.out.print("Inserisci la marca da ricercare: ");
+                    ricercaMarca= input.next();
+                    System.out.print("Inserisci il modello da ricercare: ");
+                    ricercaModello= input.next();
+                    System.out.print("Inserisci il prezzo da ricercare: ");
+                    ricercaPrezzo= input.nextDouble();
+                    for(int i=0;i<conta;i++){
+                        if(marca[i].equalsIgnoreCase(ricercaMarca)&&modello[i].equalsIgnoreCase(ricercaModello)&&prezzo[i]==ricercaPrezzo){
+                            marca[i]= input.next();
+                            modello[i]= input.next();
+                            prezzo[i]= input.nextDouble();
+                        }
+                    }
+                }
+                case 6:{
+                    int min;
+                    for(int i=0;i<conta-1;i++){
+                        min=i;
+                        for(int j=i+1;j<conta;j++){
+                            if(marca[j].compareTo(marca[min])<0){
+                                min=j;
+                            }
+                        }
+                    }
                 }
             }
         }while(scelta!=0);
     }
-    private static void aggiungi (String[]marca, String[]modello, double[]prezzo,int num){
-        for(int i=0;i<num;i++){
-
+    private static void aggiunta (int conta, String[] marca, String[]modello, double[]prezzo, String marcaIns, String modelloIns, double prezzoIns) {
+        marca[conta]=marcaIns;
+        modello[conta]=modelloIns;
+        prezzo[conta]=prezzoIns;
+    }
+    private static void visualizza (String[]marca,String[]modello,double[]prezzo,int conta){
+        for (int i=0;i<conta;i++) {
+            System.out.println(marca[i]);
+            System.out.print(modello[i]);
+            System.out.print(prezzo[i]);
+        }
+    }
+    private static void ricerca (String marca3, String modello3, String[]marca,String[]modello,int conta){
+        for(int i=0;i<conta;i++){
+            if(marca[i].equalsIgnoreCase(marca3)&&modello[i].equalsIgnoreCase(modello3)){
+                System.out.println(marca[i]);
+                System.out.println(modello[i]);
+                break;
+            }
         }
     }
 }
