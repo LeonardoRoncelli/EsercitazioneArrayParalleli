@@ -77,6 +77,9 @@ public class Main {
                     int min=0;
                     ordinate(conta,marca,min);
                 }
+                case 7:{
+                    diesel(conta,modello,marca,prezzo);
+                }
             }
         }while(scelta!=0);
     }
@@ -122,6 +125,15 @@ public class Main {
                 if(marca[j].compareTo(marca[min])<0){
                     min=j;
                 }
+            }
+        }
+    }
+    private static void diesel (int conta,String[] modello,String[]marca,double[]prezzo){
+        for(int i=0;i<conta;i++){
+            if(modello[i].equalsIgnoreCase("diesel")){
+                System.out.println(marca[i]);
+                System.out.println(modello[i]);
+                System.out.println(prezzo[i]);
             }
         }
     }
