@@ -71,17 +71,11 @@ public class Main {
                             prezzo[i]= input.nextDouble();
                         }
                     }
+                    modifica(ricercaMarca,ricercaModello,ricercaPrezzo,conta,marca,modello,prezzo);
                 }
                 case 6:{
-                    int min;
-                    for(int i=0;i<conta-1;i++){
-                        min=i;
-                        for(int j=i+1;j<conta;j++){
-                            if(marca[j].compareTo(marca[min])<0){
-                                min=j;
-                            }
-                        }
-                    }
+                    int min=0;
+                    ordinate(conta,marca,min);
                 }
             }
         }while(scelta!=0);
@@ -115,6 +109,19 @@ public class Main {
                 marca[conta] = temp;
                 conta--;
                 break;
+            }
+        }
+    }
+    private static void modifica (String ricercaMarca,String ricercaModello,double ricercaPrezzo,int conta,String[]marca,String[]modello,double[]prezzo){
+
+    }
+    private static void ordinate (int conta,String[]marca,int min){
+        for(int i=0;i<conta-1;i++){
+            min=i;
+            for(int j=i+1;j<conta;j++){
+                if(marca[j].compareTo(marca[min])<0){
+                    min=j;
+                }
             }
         }
     }
