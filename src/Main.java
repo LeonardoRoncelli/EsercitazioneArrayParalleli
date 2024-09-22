@@ -71,7 +71,6 @@ public class Main {
                             prezzo[i]= input.nextDouble();
                         }
                     }
-                    modifica(ricercaMarca,ricercaModello,ricercaPrezzo,conta,marca,modello,prezzo);
                 }
                 case 6:{
                     int min=0;
@@ -114,9 +113,6 @@ public class Main {
                 break;
             }
         }
-    }
-    private static void modifica (String ricercaMarca,String ricercaModello,double ricercaPrezzo,int conta,String[]marca,String[]modello,double[]prezzo){
-
     }
     private static void ordinate (int conta,String[]marca,int min){
         for(int i=0;i<conta-1;i++){
