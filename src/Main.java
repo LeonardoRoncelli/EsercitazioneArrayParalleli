@@ -55,22 +55,23 @@ public class Main {
                     Funzioni.cancella(cancMarca,cancModello,temp,conta,marca,modello);
                 }
                 case 5:{
-                    String ricercaMarca;
-                    String ricercaModello;
-                    double ricercaPrezzo;
-                    System.out.print("Inserisci la marca da ricercare: ");
-                    ricercaMarca= input.next();
-                    System.out.print("Inserisci il modello da ricercare: ");
-                    ricercaModello= input.next();
-                    System.out.print("Inserisci il prezzo da ricercare: ");
-                    ricercaPrezzo= input.nextDouble();
+                    String modMarca;
+                    String modModello;
+                    double modPrezzo;
+                    System.out.print("Inserisci la marca da modificare: ");
+                    modMarca= input.next();
+                    System.out.print("Inserisci il modello da modificare: ");
+                    modModello= input.next();
+                    System.out.print("Inserisci il prezzo da modificare: ");
+                    modPrezzo= input.nextDouble();
                     for(int i=0;i<conta;i++){
-                        if(marca[i].equalsIgnoreCase(ricercaMarca)&&modello[i].equalsIgnoreCase(ricercaModello)&&prezzo[i]==ricercaPrezzo){
+                        if(marca[i].equals(null)&&modello[i].equals(null)&&prezzo[i]==0){
                             marca[i]= input.next();
                             modello[i]= input.next();
                             prezzo[i]= input.nextDouble();
                         }
                     }
+                    Funzioni.modifica(modMarca,modModello,modPrezzo,marca,modello,prezzo,conta);
                 }
                 case 6:{
                     int min=0;

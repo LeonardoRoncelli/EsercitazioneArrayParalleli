@@ -50,4 +50,13 @@ public class Funzioni {
             }
         }
     }
+    public static void modifica (String modMarca,String modModello,double modPrezzo,String[]marca,String[]modello,double[]prezzo,int conta){
+        for (int i=0;i<conta;i++){
+            if(marca[i].equalsIgnoreCase(modMarca)&&modello[i].equalsIgnoreCase(modModello)&&prezzo[i]==modPrezzo){
+                marca[i]=null;
+                modello[i]=null;
+                prezzo[i]=0;
+            }
+        }
+    }
 }
