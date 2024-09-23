@@ -11,14 +11,19 @@ public class Funzioni {
             System.out.print(prezzo[i]);
         }
     }
-    public static void ricerca (String marca3, String modello3, String[]marca,String[]modello,int conta){
+    public static String ricerca (String marca3, String modello3, String[]marca,String[]modello,int conta){
+        String s1="";
+        String s2="";
+        String modMarca="";
         for(int i=0;i<conta;i++){
             if(marca[i].equalsIgnoreCase(marca3)&&modello[i].equalsIgnoreCase(modello3)){
-                System.out.println(marca[i]);
-                System.out.println(modello[i]);
+                s1=marca[i];
+                s2=modello[i];
+                modMarca=s1+" "+s2;
                 break;
             }
         }
+        return modMarca;
     }
     public static void cancella (String cancMarca,String cancModello,String temp,int conta,String[]marca,String[]modello){
         for (int i = 0; i < conta; i++) {
